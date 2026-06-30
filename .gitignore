@@ -1,0 +1,6 @@
+# このリポジトリは index.html のみを配信する
+*.pdf
+*.xlsx
+*.xls
+*.csv
+*.py
