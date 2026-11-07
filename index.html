@@ -8,7 +8,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="Winter Ops">
 <meta name="theme-color" content="#070b11">
-<title>Winter Ops B737 — AVIONICS (AOMB No.187)</title>
+<title>Winter Ops B737 — AVIONICS (AOMB No.191)</title>
 <style>
 /* ============================================================
    Winter Ops — AVIONICS THEME（B737 EICAS/PFD風）
@@ -248,6 +248,49 @@ footer{font-size:.64rem;color:var(--mut2);text-align:center;padding:14px 0 34px;
 .accordion summary{padding:12px 13px;cursor:pointer;font-size:.72rem;font-weight:700;color:var(--lbl);letter-spacing:1.5px;min-height:44px;display:flex;align-items:center}
 .accordion .inner{padding:0 13px 13px}
 
+/* ---- PROC（冬季 Procedure メモ）: FMC/EICAS 風 ---- */
+.proc-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:10px;margin-bottom:10px}
+.proc-sum{font-size:.78rem;color:var(--mut);line-height:1.6;letter-spacing:.5px}
+.proc-sum b{color:var(--grn);text-shadow:0 0 6px rgba(25,240,106,.4)}
+.proc-seg{min-width:260px}
+.proc-legend{font-size:.66rem;color:var(--mut);line-height:2.1;margin-bottom:12px;letter-spacing:.5px}
+.proc-cols{display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+.proc-colhead{display:flex;justify-content:space-between;align-items:baseline;gap:8px;padding:8px 12px;border:1px solid var(--line2);border-radius:3px;background:#000}
+.proc-colhead b{letter-spacing:4px;font-size:.88rem;color:var(--lbl);text-shadow:0 0 8px rgba(39,199,224,.45)}
+.proc-colhead span{font-size:.68rem;color:var(--mut)}
+.proc-ph{margin-top:14px}
+.proc-ph h4{margin:0;padding-bottom:4px;border-bottom:1px solid var(--line2);font-size:.68rem;letter-spacing:2px;color:var(--lbl);display:flex;flex-wrap:wrap;gap:2px 10px;align-items:baseline}
+.proc-ph h4 span{font-weight:400;letter-spacing:0;color:var(--mut)}
+.proc-ph ul,.proc-set ul{list-style:none;margin:0;padding:0}
+.proc-row{padding:8px 0;border-bottom:1px solid var(--line)}
+.pline{display:flex;align-items:baseline}
+.pit{min-width:0;font-size:.92rem;color:var(--text)}
+.plead{flex:1 1 18px;min-width:18px;margin:0 8px 6px;border-bottom:2px dotted var(--line2);align-self:flex-end}
+.pac{flex:none;max-width:60%;text-align:right;font-weight:700;font-size:.92rem;letter-spacing:1px;color:var(--grn);text-shadow:0 0 6px rgba(25,240,106,.35)}
+.mono{font-family:inherit}
+.pw{display:inline-block;margin:0 6px 3px 0;padding:0 7px;border:1px solid var(--amber);border-radius:2px;font-size:.64rem;font-weight:700;line-height:1.7;color:var(--amber);letter-spacing:.5px}
+.pw.gate{color:var(--warn);border-color:var(--warn)}
+.pdt{display:inline-block;margin-left:6px;padding:0 5px;border:1px solid var(--line2);border-radius:2px;font-size:.62rem;color:var(--mut);vertical-align:1px}
+.ptag{display:inline-block;margin-right:6px;padding:0 6px;border:1px solid var(--lbl);border-radius:2px;font-size:.6rem;font-weight:700;letter-spacing:1.5px;line-height:1.7;color:var(--lbl);vertical-align:1px}
+.ptag.solid{color:#000;background:var(--lbl)}
+.pnote{margin:3px 0 0;font-size:.72rem;color:var(--mut);line-height:1.55}
+.proc-row.gate{margin:6px 0;padding:9px 11px;border:1px solid var(--warn);border-radius:3px;box-shadow:inset 0 0 14px rgba(255,46,46,.08)}
+.proc-row.gate .pac{color:var(--warn);text-shadow:0 0 6px rgba(255,46,46,.4)}
+.proc-set{margin:6px 0;padding:8px 11px 2px;border:1px solid var(--lbl);border-radius:3px;box-shadow:inset 0 0 14px rgba(39,199,224,.06)}
+.pset-k{font-size:.78rem;font-weight:700;color:var(--lbl);letter-spacing:.5px}
+.proc-set .proc-row:last-child{border-bottom:none}
+.phit{display:inline-block;margin:0 0 3px;padding:0 8px;border-radius:2px;font-size:.64rem;font-weight:700;line-height:1.7;letter-spacing:.5px;color:#000;background:var(--mag);box-shadow:0 0 8px rgba(255,77,255,.5)}
+.proc-row.hit{box-shadow:inset 3px 0 0 var(--mag);padding-left:9px}
+.proc-row.hitgate{box-shadow:0 0 0 2px var(--warn),0 0 14px rgba(255,46,46,.4)}
+.proc-row.hitgate .phit{color:#fff;background:var(--warn);box-shadow:0 0 8px rgba(255,46,46,.5)}
+@media (min-width:768px){
+  .proc-cols{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .proc-seg{display:none}
+}
+@media (max-width:767px){
+  .proc-col:not(.on){display:none}
+}
+
 /* ---- RWY区分通報順リマインド ---- */
 .remind{margin:0 0 14px;border:1px solid var(--line);border-radius:4px;background:#000}
 .remind summary{padding:12px 13px;cursor:pointer;font-size:.72rem;font-weight:700;color:var(--lbl);letter-spacing:1.5px;min-height:44px;display:flex;align-items:center;text-shadow:0 0 5px rgba(39,199,224,.3)}
@@ -362,6 +405,7 @@ footer{font-size:.64rem;color:var(--mut2);text-align:center;padding:14px 0 34px;
   <button class="tab-btn active" id="btn-hot" onclick="switchTab('hot')"><span class="dot">●</span> HOT</button>
   <button class="tab-btn" id="btn-takeoff" onclick="switchTab('takeoff')"><span class="dot">●</span> TAKEOFF</button>
   <button class="tab-btn" id="btn-landing" onclick="switchTab('landing')"><span class="dot">●</span> LANDING</button>
+  <button class="tab-btn" id="btn-proc" onclick="switchTab('proc')"><span class="dot">●</span> PROC</button>
 </div>
 
 <!-- ======================= TAB: HOT ======================= -->
@@ -417,9 +461,10 @@ footer{font-size:.64rem;color:var(--mut2);text-align:center;padding:14px 0 34px;
 
     <label class="fl">Time of Day（降雪強度判定用）</label>
     <div class="seg">
-      <input type="radio" name="tod" id="tDay" value="day" onchange="calcHOT()"><label for="tDay">☀️ DAY</label>
-      <input type="radio" name="tod" id="tNight" value="night" checked onchange="calcHOT()"><label for="tNight">🌙 NIGHT</label>
+      <input type="radio" name="tod" id="tDay" value="day" onchange="calcHOT();$('todAuto').textContent='手動設定'"><label for="tDay">☀️ DAY</label>
+      <input type="radio" name="tod" id="tNight" value="night" checked onchange="calcHOT();$('todAuto').textContent='手動設定'"><label for="tNight">🌙 NIGHT</label>
     </div>
+    <div class="status" id="todAuto" style="text-align:left">METAR取得時に観測時刻の日出・日没から自動設定（手動で変更可）</div>
 
     <details class="accordion">
       <summary>MANUAL OVERRIDE（OAT / VIS / GS解釈 / Cold Soaked Wing）</summary>
@@ -463,6 +508,7 @@ footer{font-size:.64rem;color:var(--mut2);text-align:center;padding:14px 0 34px;
       <span style="display:flex;gap:8px;align-items:center">
         <label class="toggle"><input type="checkbox" id="toIntersection" onchange="calcTakeoff()"><div class="tsw"></div><span class="tl">INTERSECTION</span></label>
         <button class="minibtn" onclick="openModal('mRef')">REF</button>
+        <button class="minibtn" onclick="procSide='DEPARTURE';switchTab('proc')">PROC ▸</button>
       </span>
     </div>
     <div id="toZones"></div>
@@ -491,13 +537,33 @@ ICE等・WET等と混在する場合は平均不可 — 各区分の状態で全
     <div class="ld-main">
     <div class="bar">
       <span class="l">RWY CONDITION — 進行方向順に入力（ATIS通報順）</span>
-      <button class="minibtn" onclick="openModal('mLdRef')">REF</button>
+      <span style="display:flex;gap:8px;align-items:center">
+        <button class="minibtn" onclick="openModal('mLdRef')">REF</button>
+        <button class="minibtn" onclick="procSide='ARRIVAL';switchTab('proc')">PROC ▸</button>
+      </span>
     </div>
     <div id="ldZones"></div>
     <div class="fineprint">※ 着陸のContaminated RWYは適用性能「COLD」。進行方向前方2区分の低いRWYCCを使用。
 最前方区分が RWYCC 0 / Limit Depth超過の場合のみ残り2区分で Max LDG Wt 算出可。
 高度1,000ft AGLまでに滑走路状態・着陸性能の安全確認ができなければ進入継続不可。</div>
     </div><!-- /ld-main -->
+  </div>
+</div>
+
+<!-- ======================= TAB: PROC ======================= -->
+<div class="tab" id="tab-proc">
+  <div class="card">
+    <div class="proc-head">
+      <div class="proc-sum" id="procSum"></div>
+      <div class="seg proc-seg">
+        <input type="radio" name="procside" id="psDep" value="DEPARTURE" checked onchange="procSide='DEPARTURE';renderProc()"><label for="psDep">DEPARTURE</label>
+        <input type="radio" name="procside" id="psArr" value="ARRIVAL" onchange="procSide='ARRIVAL';renderProc()"><label for="psArr">ARRIVAL</label>
+      </div>
+    </div>
+    <div class="proc-legend"><span class="pw">条件</span>該当するときだけ実施　<span class="pw gate">GATE</span>止める・進まない判断　<span class="pdt">詳細</span>出典に詳細ページあり　<span class="phit">▶ 該当</span>入力中のMETARで条件に当てはまる</div>
+    <div class="proc-cols" id="procCols"></div>
+    <div class="fineprint">原本: 冬季 Procedure メモ（2026-11-07版。出典 SnowBird「TAKEOFF」「APPROACH・LANDING」からコクピットで実施する操作と確認を抜粋）。RWYCC・横風・Limit Depth・Slush 換算などの判断基準は TAKEOFF / LANDING タブ側。手順は AOM・社内規定の最新版で確認のこと。
+「▶ 該当」は入力中のMETAR（OAT・天気）から機械的に判定した目安で、ENG Anti-Ice の作動状態や TWY/APRON の状況など METAR に無い条件は判定しない。項目は該当の有無にかかわらず全て表示。</div>
   </div>
 </div>
 </div><!-- /wrap -->
@@ -507,15 +573,17 @@ ICE等・WET等と混在する場合は平均不可 — 各区分の状態で全
   <div class="modal-inner" onclick="event.stopPropagation()">
     <span class="x" onclick="this.closest('.modal').style.display='none'">&times;</span>
     <h3>Snowfall Intensity Conversion Table</h3>
-    <div class="sub">AOMB No.187.1.1 — SN / SG / Snow Pellets の強度は視程で判定（RVR使用不可・SN FZFGは本表必須）</div>
+    <div class="sub">AOMB No.191.1.1 — SN / SG / Snow Pellets の強度は視程で判定（RVR使用不可・SN FZFGは本表必須）</div>
     <div class="scroll-x"><table class="ref">
       <tr><th>Time</th><th>OAT</th><th style="color:#ff8a80">Heavy</th><th style="color:#ffcc80">Moderate</th><th style="color:#a5d6a7">Light</th><th style="color:#80deea">Very Light</th></tr>
-      <tr><td rowspan="2">Day</td><td>−1℃超</td><td class="num">≦1,000m</td><td class="num">≦1,400m</td><td class="num">≦3,000m</td><td class="num">3,000m&lt;</td></tr>
-      <tr><td>−1℃以下</td><td class="num">≦600m</td><td class="num">≦1,400m</td><td class="num">≦2,600m</td><td class="num">2,600m&lt;</td></tr>
-      <tr><td rowspan="2">Night</td><td>−1℃超</td><td class="num">≦1,400m</td><td class="num">≦2,600m</td><td class="num">≦3,600m</td><td class="num">3,600m&lt;</td></tr>
-      <tr><td>−1℃以下</td><td class="num">≦1,000m</td><td class="num">≦2,600m</td><td class="num">≦3,600m</td><td class="num">3,600m&lt;</td></tr>
+      <tr><td rowspan="2">Day</td><td>−1℃超</td><td class="num">≦1,000m<br><small>(5/8SM)</small></td><td class="num">≦1,400m<br><small>(7/8SM)</small></td><td class="num">≦3,000m<br><small>(1 7/8SM)</small></td><td class="num">3,000m&lt;</td></tr>
+      <tr><td>−1℃以下</td><td class="num">≦600m<br><small>(3/8SM)</small></td><td class="num">≦1,400m<br><small>(7/8SM)</small></td><td class="num">≦2,600m<br><small>(1 5/8SM)</small></td><td class="num">2,600m&lt;</td></tr>
+      <tr><td rowspan="2">Night</td><td>−1℃超</td><td class="num">≦1,400m<br><small>(7/8SM)</small></td><td class="num">≦2,600m<br><small>(1 5/8SM)</small></td><td class="num">≦5,200m<br><small>(3 1/4SM)</small></td><td class="num">5,200m&lt;</td></tr>
+      <tr><td>−1℃以下</td><td class="num">≦1,000m<br><small>(5/8SM)</small></td><td class="num">≦2,600m<br><small>(1 5/8SM)</small></td><td class="num">≦4,400m<br><small>(2 3/4SM)</small></td><td class="num">4,400m&lt;</td></tr>
     </table></div>
-    <div class="fineprint">SN FG: METARの強度符号（-等）で判断してよい。
+    <div class="fineprint">No.191改訂: 夜間の Light / Very Light 境界を変更（旧 3,600m → −1℃超 5,200m / −1℃以下 4,400m）。
+*13 降雪強度の判定には本表が必須。視程がHeavy相当ならHOT無し。
+SN FG（FZFG以外の霧と併存）: METARの強度符号（-等）で判断してよい（Operations in Snow）。
 SN FZFG: 強度符号ではなく本表（視程）で判断する。
 Heavy snow → HOT無し。「Operations in Heavy Snow」による。</div>
   </div>
@@ -525,7 +593,7 @@ Heavy snow → HOT無し。「Operations in Heavy Snow」による。</div>
   <div class="modal-inner" onclick="event.stopPropagation()">
     <span class="x" onclick="this.closest('.modal').style.display='none'">&times;</span>
     <h3 id="mFluidTitle">Fluid Table</h3>
-    <div class="sub">AOMB No.187.4 — Type IV (100/0) Holdover Time Guideline (h:mm)</div>
+    <div class="sub">AOMB No.191.4 — Type IV (100/0) Holdover Time Guideline (h:mm)</div>
     <div class="scroll-x" id="mFluidBody"></div>
     <div class="fineprint" id="mFluidNotes"></div>
   </div>
@@ -535,9 +603,11 @@ Heavy snow → HOT無し。「Operations in Heavy Snow」による。</div>
   <div class="modal-inner" onclick="event.stopPropagation()">
     <span class="x" onclick="this.closest('.modal').style.display='none'">&times;</span>
     <h3>Ice Pellets &amp; Small Hail Allowance Time — PG (min)</h3>
-    <div class="sub">AOMB No.187.1.1 — ABC-S Plus / POLAR GUARD XTEND / SAFEWING MP IV LAUNCH ほか PG液</div>
+    <div class="sub">AOMB No.191.1.1 — ABC-S Plus / POLAR GUARD XTEND / SAFEWING MP IV LAUNCH ほか PG液</div>
     <div class="scroll-x" id="mAllowBody"></div>
-    <div class="fineprint">*1 VR&lt;100kt では Allowance Time は存在しない（離陸不可）。
+    <div class="fineprint">No.191改訂: Light IP の混合は Light FZDZ / DZ のみに（DZPL / FZDZPL（強度記号なし）は Moderate IP 行へ移動、+DZPL / +FZDZPL は削除）。Moderate IP の混合から Heavy FZDZ / DZ を削除。
+別の群で報じられた降水（例: -SN -PL）も同じ組合せとして照合。表に無い組合せ・強度・温度域、Not Authorized は離陸不可。
+*1 VR&lt;100kt では Allowance Time は存在しない（離陸不可）。
 *2 CAUTION: VR&lt;115kt では離陸してはならない。
 *4 小雹(GS)の強度が通報されない場合は Moderate Ice Pellets の時間を使用。強度付き通報があれば同等強度のIce Pellets欄を使用可（混合時も同様）。
 表に無い組合せ・温度域は離陸不可。Type IV 100/0 でAnti-icingされていること。</div>
@@ -547,7 +617,7 @@ Heavy snow → HOT無し。「Operations in Heavy Snow」による。</div>
 <div class="modal" id="mCautions" onclick="closeModal(event,this)">
   <div class="modal-inner" onclick="event.stopPropagation()">
     <span class="x" onclick="this.closest('.modal').style.display='none'">&times;</span>
-    <h3>Cautions / Notes（No.187 抜粋）</h3>
+    <h3>Cautions / Notes（No.191 抜粋）</h3>
     <div class="fineprint">
 ■ 離陸不可: Heavy small hail(+GS) / Heavy ice pellets(+PL) / Hail(GR) / Moderate &amp; Heavy freezing rain(FZRA / +FZRA)。
 ■ HOTは防氷液の最終散布開始時点から起算。断続的な降水でも時計を止めない。
@@ -556,7 +626,7 @@ Heavy snow → HOT無し。「Operations in Heavy Snow」による。</div>
 ■ Heavy Snow での離陸条件: ①Type II/IV 100/0でAnti-ice ②散布前に機体がClean ③離陸前5分以内のWing上面チェック ④視界が液剤・汚れ・曇りで妨げられないこと ⑤液剤無効と判断したら離陸中止→再De/Anti-ice。
 ■ *10 Mist(BR)はOAT≦0℃でFZFG欄を使用（他降水と混在時は適用不可・視程障害扱い）。
 ■ *11 IC(細氷)+FZFG/BR → FZFG欄。 *12 SN/SG/SnowPellets+IC → SN欄。
-■ *13 SNFZFG はSnowfall Intensity Conversion Tableで「Moderate以下」を確認（HeavyにはHOT無し）。
+■ *13 降雪強度（SN / SG / Snow Pellets 欄および SNFZFG 欄）の判定には Snowfall Intensity Conversion Table が必須。視程がHeavy相当ならHOT無し。（No.191で改訂・Snow欄にも適用）
 ■ *2/*15 VeryLight/Light Snow + Light Rain(-RA)/Drizzle(DZ) → Light FZRA(-FZRA)のHOTを使用。Moderate Snow + Rain は専用欄（OAT&gt;0℃のみ・視程がHeavy相当ならHOT無し）。
 ■ *3 FZDZ（強度問わず）でFZDZと確実に識別できない場合は -FZRA のHOTを使用。
 ■ Small hail / Ice Pellets に Type I・II 液をAnti-icingとして使用してはならない。
@@ -630,7 +700,8 @@ Ice・Wet Ice・Compacted Snow・FROST → ICY性能（進行方向前方2区分
 <script>
 "use strict";
 /* ════════════════════════════════════════════════════════════
-   DATABASE — AOMB No.187 (Rev 25.7.0, 27-Nov-2025), Type IV 100/0
+   DATABASE — AOMB No.191 (Rev 26.2.0, 29-Oct-2026), Type IV 100/0
+   ※ 3液の100/0値はNo.187から無改訂（No.191全セルを独立画像読み取りで照合済み）
    値はすべて「分」。range は [min,max]（min=Moderate側 / max=Light側）。
    snfzfg: {m, lvl} / sn: {m,l,vl} / snra: Moderate Snow mixed with Rain
    ════════════════════════════════════════════════════════════ */
@@ -661,35 +732,39 @@ const HOT_DB = {
   ]},
 };
 
-/* Allowance Time — PG (No.187.1.1)。bands: [>0, 0〜-5, <-5〜-10, <-10〜-16, <-16〜-22]
-   t:分 / null=Operations Not Authorized / vr115:true → *2 CAUTION VR≧115kt */
+/* Allowance Time — PG (No.191.1.1)。bands: [>0, 0〜-5, <-5〜-10, <-10〜-16, <-16〜-22]
+   t:分 / null=Operations Not Authorized / vr115:true → *2 CAUTION VR≧115kt
+   No.191改訂: Light IP混合は「Light」FZDZ/DZのみ（DZPL/FZDZPLはModerate IP行へ移動、+DZPL/+FZDZPLは削除=表外→離陸不可）、
+   Moderate IP混合はHeavy FZDZ/DZを削除（Light or Moderateのみ） */
 const NA = null;
+/* ip: Ice Pellets(小雹含む)の強度 / mix: 混合する降水成分 → 許容される報告強度（L/M）
+   METARの単一群（-PLSN 等）も別群（-SN -PL 等）も同じ成分モデルで照合する。codes は表記載コード（表示用・自己整合テスト用） */
 const ALLOW_DB = [
- {id:"L_PL",      label:"Light Ice Pellets (or Small Hail) (-PL)", codes:["-PL"],
+ {id:"L_PL",      label:"Light Ice Pellets (or Small Hail) (-PL)", codes:["-PL"], ip:"L", mix:{},
   t:[{t:50},{t:50},{t:30},{t:30,vr115:1},{t:20,vr115:1}]},
- {id:"L_PL_SN",   label:"Light IP + Light Snow (-PLSN, -SNPL)", codes:["-PLSN","-SNPL"],
+ {id:"L_PL_SN",   label:"Light IP + Light Snow (-PLSN, -SNPL)", codes:["-PLSN","-SNPL"], ip:"L", mix:{SN:["L"]},
   t:[{t:40},{t:40},{t:15},{t:15,vr115:1},NA]},
- {id:"L_PL_FZDZ", label:"Light IP + Freezing Drizzle (L/M/H)", codes:["-PLFZDZ","-FZDZPL","FZDZPL","+FZDZPL"],
+ {id:"L_PL_FZDZ", label:"Light IP + Light Freezing Drizzle (-PLFZDZ, -FZDZPL)", codes:["-PLFZDZ","-FZDZPL"], ip:"L", mix:{FZDZ:["L"]},
   t:[NA,{t:25},{t:10},NA,NA]},
- {id:"L_PL_DZ",   label:"Light IP + Drizzle (L/M/H)", codes:["-PLDZ","-DZPL","DZPL","+DZPL"],
+ {id:"L_PL_DZ",   label:"Light IP + Light Drizzle (-PLDZ, -DZPL)", codes:["-PLDZ","-DZPL"], ip:"L", mix:{DZ:["L"]},
   t:[{t:25},NA,NA,NA,NA]},
- {id:"L_PL_FZRA", label:"Light IP + Light Freezing Rain", codes:["-PLFZRA","-FZRAPL"],
+ {id:"L_PL_FZRA", label:"Light IP + Light Freezing Rain (-PLFZRA, -FZRAPL)", codes:["-PLFZRA","-FZRAPL"], ip:"L", mix:{FZRA:["L"]},
   t:[NA,{t:25},{t:10},NA,NA]},
- {id:"L_PL_RA",   label:"Light IP + Light Rain", codes:["-PLRA","-RAPL"],
+ {id:"L_PL_RA",   label:"Light IP + Light Rain (-PLRA, -RAPL)", codes:["-PLRA","-RAPL"], ip:"L", mix:{RA:["L"]},
   t:[{t:25},NA,NA,NA,NA]},
- {id:"L_PL_FZRA_SN", label:"Light IP + Light FZRA + Light Snow", codes:["-PLFZRASN","-PLSNFZRA","-FZRAPLSN","-FZRASNPL","-SNPLFZRA","-SNFZRAPL"],
+ {id:"L_PL_FZRA_SN", label:"Light IP + Light FZRA + Light Snow", codes:["-PLFZRASN","-PLSNFZRA","-FZRAPLSN","-FZRASNPL","-SNPLFZRA","-SNFZRAPL"], ip:"L", mix:{FZRA:["L"],SN:["L"]},
   t:[NA,{t:20},NA,NA,NA]},
- {id:"L_PL_RA_SN",   label:"Light IP + Light Rain + Light Snow", codes:["-PLRASN","-PLSNRA","-RAPLSN","-RASNPL","-SNPLRA","-SNRAPL"],
+ {id:"L_PL_RA_SN",   label:"Light IP + Light Rain + Light Snow", codes:["-PLRASN","-PLSNRA","-RAPLSN","-RASNPL","-SNPLRA","-SNRAPL"], ip:"L", mix:{RA:["L"],SN:["L"]},
   t:[{t:20},NA,NA,NA,NA]},
- {id:"M_PL",      label:"Moderate Ice Pellets (or Small Hail) (PL)", codes:["PL"],
+ {id:"M_PL",      label:"Moderate Ice Pellets (or Small Hail) (PL)", codes:["PL"], ip:"M", mix:{},
   t:[{t:15},{t:15},{t:10},{t:10,vr115:1},NA]},
- {id:"M_PL_SN",   label:"Moderate IP + Moderate Snow (PLSN, SNPL)", codes:["PLSN","SNPL"],
+ {id:"M_PL_SN",   label:"Moderate IP + Moderate Snow (PLSN, SNPL)", codes:["PLSN","SNPL"], ip:"M", mix:{SN:["M"]},
   t:[{t:15},{t:15},{t:5},{t:5},NA]},
- {id:"M_PL_FZDZ", label:"Moderate IP + Freezing Drizzle (L/M/H) (PLFZDZ)", codes:["PLFZDZ"],
+ {id:"M_PL_FZDZ", label:"Moderate IP + Light or Moderate Freezing Drizzle (PLFZDZ, FZDZPL)", codes:["PLFZDZ","FZDZPL"], ip:"M", mix:{FZDZ:["L","M"]},
   t:[NA,{t:10},{t:7},NA,NA]},
- {id:"M_PL_DZ",   label:"Moderate IP + Drizzle (L/M/H) (PLDZ)", codes:["PLDZ"],
+ {id:"M_PL_DZ",   label:"Moderate IP + Light or Moderate Drizzle (PLDZ, DZPL)", codes:["PLDZ","DZPL"], ip:"M", mix:{DZ:["L","M"]},
   t:[{t:10},NA,NA,NA,NA]},
- {id:"M_PL_RA",   label:"Moderate IP + Moderate Rain (PLRA, RAPL)", codes:["PLRA","RAPL"],
+ {id:"M_PL_RA",   label:"Moderate IP + Moderate Rain (PLRA, RAPL)", codes:["PLRA","RAPL"], ip:"M", mix:{RA:["M"]},
   t:[{t:10},NA,NA,NA,NA]},
 ];
 const ALLOW_BANDS = ["Above 0","0 to -5","Below -5 to -10","Below -10 to -16","Below -16 to -22"];
@@ -719,20 +794,31 @@ function parseWxToken(tok){
     if(!WX_CODES.includes(c)) return null;
     parts.push(c);
   }
-  // 記述子の結合: FZ+DZ/RA/FG → FZDZ/FZRA/FZFG。BL/DR+SN は降水でない(Blowing/Drifting)
-  const set=new Set(), raw=[...parts];
-  let blowing=false;
+  // 記述子の結合: FZ+DZ/RA/FG → FZDZ/FZRA/FZFG。BL/DR+SN は降水でない(Blowing/Drifting)。
+  // SH/MI/PR/BC等の記述子は成分に含めない。order は成分の出現順（先頭=主成分）
+  const set=new Set(), raw=[...parts], order=[];
+  const add = x => { set.add(x); order.push(x); };
+  let blowing=false, fz=false;
   for(let i=0;i<parts.length;i++){
     const c=parts[i];
-    if(c==="FZ"&&i+1<parts.length&&["DZ","RA","FG"].includes(parts[i+1])){ set.add("FZ"+parts[i+1]); i++; }
+    if(c==="FZ"){ fz=true; continue; }                       // FZ は群内の後続 DZ/RA すべてに掛かる（-FZDZRA = FZDZ+FZRA）
+    if(fz && ["DZ","RA","FG"].includes(c)){ add("FZ"+c); continue; }
     else if((c==="BL"||c==="DR")&&i+1<parts.length&&parts[i+1]==="SN"){ blowing=true; i++; }
-    else if(["SH","TS","MI","PR","BC","DR","BL"].includes(c)){ if(c==="TS") set.add("TS"); }
-    else set.add(c);
+    else if(["SH","TS","MI","PR","BC","DR","BL"].includes(c)){ if(c==="TS") add("TS"); }
+    else add(c);
   }
-  return { tok, intensity, set, raw, blowing };
+  return { tok, intensity, set, raw, order, blowing };
+}
+/* SM視程: "1/2SM" "1SM" "1 5/8SM"(整数と分数は別トークン→結合済みで渡す) "M1/4SM"(未満) "P6SM"(超) */
+function parseSM(t){
+  const m = t.match(/^([MP])?(?:(\d{1,2})\s+)?(?:(\d+)\/(\d+)|(\d+))SM$/);
+  if(!m) return null;
+  let v = m[5]!=null ? parseInt(m[5]) : parseInt(m[3])/parseInt(m[4]);
+  if(m[2]!=null) v += parseInt(m[2]);
+  return isNaN(v) ? null : { sm:v, less:m[1]==="M", more:m[1]==="P" };
 }
 function parseMetar(text){
-  const out = { oat:null, vis:null, wx:[], obsHH:null, tokens:[] };
+  const out = { oat:null, vis:null, visSM:null, visTxt:null, wx:[], obsHH:null, tokens:[] };
   if(!text) return out;
   let toks = text.toUpperCase().trim().split(/\s+/);
   // RMK欄は本文解析から除外するが、本邦METARはGSの別(Snow Pellets/Small Hail)をRMKに通報するため保持
@@ -742,20 +828,19 @@ function parseMetar(text){
   const cut = toks.findIndex(t=>/^(RMK|TEMPO|BECMG|NOSIG|FM\d{4,6}|PROB\d{2})$/.test(t));
   if(cut>=0) toks = toks.slice(0,cut);
   toks = toks.filter(t=>!/^RE/.test(t));          // Recent weather (REFZRA等) 除外
-  for(const t of toks){
+  for(let i=0;i<toks.length;i++){
+    let t=toks[i];
     if(/^\d{6}Z$/.test(t)){ out.obsHH = parseInt(t.slice(2,4)); out.tokens.push({t,k:"time"}); continue; }
     if(/^(\d{3}|VRB)\d{2,3}(G\d{2,3})?(KT|MPS)$/.test(t)){ out.tokens.push({t,k:"wind"}); continue; }
-    if(t==="CAVOK"){ out.vis=9999; out.tokens.push({t,k:"vis"}); continue; }
+    if(t==="CAVOK"){ if(out.vis===null) out.vis=9999; out.tokens.push({t,k:"vis"}); continue; }
     let m;
     if((m=t.match(/^(\d{4})(NDV)?$/)) && out.vis===null){ out.vis=parseInt(m[1]); out.tokens.push({t,k:"vis"}); continue; }
-    if((m=t.match(/^(?:([0-9]+)\s?)?([0-9]+)?(?:([0-9]+)\/([0-9]+))?SM$/)) && /SM$/.test(t)){ // 1/2SM, 1SM, P6SM(別処理)
-      const f=t.replace("SM","");
-      let v=0;
-      if(f.startsWith("P")) v=10;
-      else if(f.includes("/")){ const[a,b]=f.split("/"); v=parseInt(a)/parseInt(b); }
-      else v=parseFloat(f);
-      if(!isNaN(v)){ out.vis=Math.round(v*1609); out.tokens.push({t,k:"vis"}); }
-      continue;
+    // 整数＋分数のSM視程（"1 5/8SM"）は2トークンを結合
+    if(/^\d{1,2}$/.test(t) && i+1<toks.length && /^\d+\/\d+SM$/.test(toks[i+1])){ t=t+" "+toks[i+1]; i++; }
+    const sm = parseSM(t);
+    if(sm){
+      if(out.vis===null){ out.visSM=sm.sm; out.vis=Math.round(sm.sm*1609); out.visTxt=t; }
+      out.tokens.push({t,k:"vis"}); continue;
     }
     if((m=t.match(/^(M?\d{2})\/(M?\d{2})?$/))){ out.oat=parseInt(m[1].replace("M","-")); out.tokens.push({t,k:"temp"}); continue; }
     const wx=parseWxToken(t);
@@ -767,14 +852,21 @@ function parseMetar(text){
 /* ════════════════════════════════════════════════════════════
    HOT ENGINE
    ════════════════════════════════════════════════════════════ */
-function snowIntensity(vis,oat,isDay){       // Snowfall Intensity Conversion Table
-  if(vis==null) return "Moderate";
-  if(isDay){
-    if(oat>-1) return vis<=1000?"Heavy":vis<=1400?"Moderate":vis<=3000?"Light":"Very Light";
-    return vis<=600?"Heavy":vis<=1400?"Moderate":vis<=2600?"Light":"Very Light";
-  }
-  if(oat>-1) return vis<=1400?"Heavy":vis<=2600?"Moderate":vis<=3600?"Light":"Very Light";
-  return vis<=1000?"Heavy":vis<=2600?"Moderate":vis<=3600?"Light":"Very Light";
+/* Snowfall Intensity Conversion Table（No.191 p5）— [Heavy上限, Moderate上限, Light上限]、各上限は「以下(≦)」。
+   表は m と SM を対で規定。SM通報は SM列と直接比較する（×1609換算だと境界値ちょうどが1段軽く判定されるため）。
+   夜間の Light 上限は No.191 で改訂（旧 3,600m → −1℃超 5,200m(3 1/4SM) / −1℃以下 4,400m(2 3/4SM)） */
+const SNOW_TABLE = {
+  day_warm:   { m:[1000,1400,3000], sm:[5/8, 7/8, 15/8] },
+  day_cold:   { m:[600, 1400,2600], sm:[3/8, 7/8, 13/8] },
+  night_warm: { m:[1400,2600,5200], sm:[7/8, 13/8,13/4] },
+  night_cold: { m:[1000,2600,4400], sm:[5/8, 13/8,11/4] },
+};
+function snowIntensity(vis,oat,isDay,visSM){
+  if(vis==null && visSM==null) return null;      // 視程不明 → 判定不能（既定値で埋めない）
+  const row = SNOW_TABLE[(isDay?"day":"night")+"_"+(oat>-1?"warm":"cold")];
+  const useSM = visSM!=null;
+  const v = useSM?visSM:vis, th = useSM?row.sm:row.m;
+  return v<=th[0]?"Heavy":v<=th[1]?"Moderate":v<=th[2]?"Light":"Very Light";
 }
 const fmt = m => m==null?"－":`${Math.floor(m/60)}:${String(m%60).padStart(2,"0")}`;
 function hotBand(fluidKey,oat){
@@ -784,39 +876,58 @@ function hotBand(fluidKey,oat){
   for(const b of f.bands){ if(oat>=b.min && oat<prev) return b; prev=b.min; }
   return null;
 }
+const PRECIP = ["PL","GS","SN","SG","RA","DZ","FZRA","FZDZ","IC","UP","GR"];
+const IRANK = {L:1,M:2,H:3};
+const INT_NAME = {L:"Light",M:"Moderate",H:"Heavy"};
+const SNOW_RANK = {"Very Light":0,"Light":1,"Moderate":2,"Heavy":3};
 /* returns {kind:"NO_TO"|"ALLOW"|"HOT"|"HEAVY_SNOW"|"NO_HOT"|"NONE", ...} */
 function decideHOT(p, opt){
   const oat = (opt.oat!=null)?opt.oat:p.oat;
-  const vis = (opt.vis!=null)?opt.vis:p.vis;
+  const ovVis = opt.vis!=null;
+  const vis = ovVis?opt.vis:p.vis;
+  const visSM = ovVis?null:(p.visSM!=null?p.visSM:null);
   const isDay = opt.isDay;
-  const res = { oat, vis, notes:[], intensity:"--" };
+  const res = { oat, vis, visTxt: ovVis?null:(p.visTxt||null), notes:[], intensity:"--" };
 
-  let wx = p.wx.map(w=>({...w, set:new Set(w.set)}));
+  let wx = p.wx.map(w=>({...w, set:new Set(w.set), order:[...(w.order||w.set)]}));
   if(wx.some(w=>w.blowing)) res.notes.push("CAUTION: BLSN/DRSN — Blowing SnowはHOTを範囲下限よりさらに短縮させ得る");
   if(wx.some(w=>w.set.has("UP"))) res.notes.push("UP(不明な降水) — 形態を地上で確認のこと");
-  // GSの別: 本邦METARはRMK欄に "SNOW PELLETS" / "SMALL HAIL" を通報（運用解釈）
+
+  // GSの別: 本邦METARはRMK欄に "SNOW PELLETS" / "SMALL HAIL" を通報（運用解釈）。RMKの通報は手動設定より優先
   const rmk = p.rmk || "";
   const hasGS = wx.some(w=>w.set.has("GS"));
-  const gsIsSP = opt.gsAsSnowPellets || (hasGS && /SNOW\s*PELLETS?/.test(rmk) && !/SMALL\s*HAIL/.test(rmk));
-  if(hasGS && !opt.gsAsSnowPellets && /SNOW\s*PELLETS?/.test(rmk)) res.notes.push("RMK: Snow Pellets通報 → GSを雪として扱い Snow HOT を適用");
-  else if(hasGS && /SMALL\s*HAIL/.test(rmk)) res.notes.push("RMK: Small Hail通報 → 小雹として Allowance Time を適用");
-  else if(hasGS && !opt.gsAsSnowPellets) res.notes.push("GSの別(Snow Pellets / Small Hail)はMETAR RMK欄で確認のこと（本邦はRMKに通報）");
-  if(gsIsSP) wx.forEach(w=>{ if(w.set.has("GS")){ w.set.delete("GS"); w.set.add("SN"); w.gsAsSP=true; } });
+  const rmkSP = /SNOW\s*PELLETS?/.test(rmk), rmkSH = /SMALL\s*HAIL/.test(rmk);
+  let gsIsSP = false;
+  if(hasGS){
+    if(rmkSH && rmkSP) res.notes.push("RMK に Small Hail と Snow Pellets の両方 → 小雹（IP相当）と Snow Pellets（雪）の混合として照合（*4・Snow欄は Snow Pellets を含む）");
+    else if(rmkSH) res.notes.push(opt.gsAsSnowPellets ? "RMK: Small Hail通報 — 手動設定（Snow Pellets扱い）より通報を優先し、小雹として Allowance Time を適用"
+                                                    : "RMK: Small Hail通報 → 小雹として Allowance Time を適用");
+    else if(rmkSP){ gsIsSP=true; res.notes.push("RMK: Snow Pellets通報 → GSを雪として扱い Snow HOT を適用"); }
+    else if(opt.gsAsSnowPellets){ gsIsSP=true; res.notes.push("GS を Snow Pellets として SN欄を適用（手動設定）"); }
+    else res.notes.push("GSの別(Snow Pellets / Small Hail)はMETAR RMK欄で確認のこと（本邦はRMKに通報）");
+  }
+  if(gsIsSP) wx.forEach(w=>{ if(w.set.has("GS")){ w.set.delete("GS"); w.set.add("SN"); w.order=w.order.map(c=>c==="GS"?"SN":c); w.gsAsSP=true; } });
+  // 両方通報: GS 群に雪成分を同じ報告強度で追加（GS は小雹として残す）
+  if(hasGS && rmkSH && rmkSP) wx.forEach(w=>{ if(w.set.has("GS") && !w.set.has("SN")){ w.set.add("SN"); w.order=[...w.order,"SN"]; } });
 
   const has = c => wx.some(w=>w.set.has(c));
-  const grpOf = c => wx.find(w=>w.set.has(c));
+  const precipOf = w => w.order.filter(c=>PRECIP.includes(c));
+  // 成分の報告強度（同一成分が複数の群にあれば強い方）
+  const maxI = c => wx.filter(w=>w.set.has(c)).reduce((a,w)=>(!a||IRANK[w.intensity]>IRANK[a])?w.intensity:a, null);
+  const precipPresent = wx.some(w=>precipOf(w).length>0);
 
   /* ---- 1. 離陸禁止 ---- */
-  if(has("GR")) return {...res, kind:"NO_TO", reason:"HAIL (GR)"};
+  if(has("GR")) return {...res, kind:"NO_TO", gateWx:true, reason:"HAIL (GR)"};
   for(const w of wx){
-    // +PL/+GS… (PL/GSが先頭の群) は Heavy IP/小雹 → 離陸禁止。
-    // +FZDZPL / +DZPL はAOMB掲載コード（FZDZ/DZがHeavy）なのでAllowance判定に回す
-    if(w.intensity==="H" && (w.raw[0]==="PL"||w.raw[0]==="GS"))
-      return {...res, kind:"NO_TO", reason:`HEAVY ${w.raw[0]==="PL"?"ICE PELLETS (+PL)":"SMALL HAIL (+GS)"}`};
+    // 強い(+)群の主成分（SH/TS等の記述子を除いた先頭）が Ice Pellets / 小雹 → 離陸禁止（+PL, +SHPL, +TSGS, +PLSN …）
+    // +FZDZPL / +DZPL（主成分がFZDZ/DZ）は No.191 で Allowance 表から削除 → 下の照合で「表に無い組合せ=離陸不可」
+    const first = precipOf(w)[0];
+    if(w.intensity==="H" && (first==="PL"||first==="GS"))
+      return {...res, kind:"NO_TO", gateWx:true, reason:`HEAVY ${first==="PL"?"ICE PELLETS":"SMALL HAIL"} (${w.tok})`};
   }
-  const fzraGrp = grpOf("FZRA");
-  if(fzraGrp && fzraGrp.intensity!=="L")
-    return {...res, kind:"NO_TO", reason:`${fzraGrp.intensity==="H"?"HEAVY":"MODERATE"} FREEZING RAIN (${fzraGrp.tok})`};
+  const fzraBad = wx.find(w=>w.set.has("FZRA") && w.intensity!=="L");
+  if(fzraBad)
+    return {...res, kind:"NO_TO", gateWx:true, reason:`${fzraBad.intensity==="H"?"HEAVY":"MODERATE"} FREEZING RAIN (${fzraBad.tok})`};
 
   /* ---- OAT必須（禁止判定の後） ---- */
   if(oat==null && (wx.length||opt.rcsw))
@@ -824,26 +935,49 @@ function decideHOT(p, opt){
 
   /* ---- 2. Ice Pellets / Small Hail → ALLOWANCE TIME ---- */
   if(has("PL")||has("GS")){
-    const w = wx.find(x=>x.set.has("PL")||x.set.has("GS"));
-    // *4: GS→PLへ正規化したコードで完全一致検索（AOMB掲載コードのみ有効）
-    // SH/TS等の記述子は除去して照合（例: SHRAGS → RAGS → RAPL。運用解釈どおり10分）
-    const prefix = w.intensity==="L"?"-":w.intensity==="H"?"+":"";
-    const norm = (prefix + w.raw.filter(c=>c!=="SH"&&c!=="TS").join("")).replace(/GS/g,"PL");
-    let row = ALLOW_DB.find(r=>r.codes.includes(norm));
-    if(row && w.set.has("GS"))
-      res.notes.push(w.intensity==="M" ? "*4 小雹(GS)強度未通報 → Moderate Ice Pellets 相当を適用"
-                                       : "*4 小雹(GS)強度通報あり → 同等強度の Ice Pellets 欄を適用");
-    res.intensity = w.intensity==="L"?"Light":"Moderate";
-    if(!row) return {...res, kind:"NO_HOT", cond:`${w.tok} — 表に無い組合せ`, reason:"AOMB Allowance Time表に存在しない組合せ → 離陸不可"};
+    // 別の群で報じられた降水も含め、全降水成分を報告強度付きで集約して表の行と照合（*4: 小雹は同等強度の Ice Pellets）
+    // 例: "-SN -PL" = "-PLSN"、"SHRAGS" = "RAPL"。表に無い組合せ・強度は離陸不可（Operations in Light, Moderate Ice Pellets）
+    const comp = {};
+    for(const w of wx) for(const c0 of precipOf(w)){
+      const c = c0==="GS"?"PL":c0;
+      if(!comp[c] || IRANK[w.intensity]>IRANK[comp[c]]) comp[c]=w.intensity;
+    }
+    const mixTxt = wx.filter(w=>precipOf(w).length).map(w=>w.tok).join(" ");
+    const gsGrp = wx.find(w=>w.set.has("GS"));
+    if(gsGrp) res.notes.push(gsGrp.intensity==="M" ? "*4 小雹(GS)強度未通報 → Moderate Ice Pellets 相当を適用"
+                                                   : "*4 小雹(GS)強度通報あり → 同等強度の Ice Pellets 欄を適用");
+    // "+FZDZPL" "+DZPL" のように + が主成分 FZDZ/DZ に掛かる群（No.191 p1 で削除されたコード）
+    const plusDzGrp = wx.find(w=>w.intensity==="H" && ["FZDZ","DZ"].includes(precipOf(w)[0]) && (w.set.has("PL")||w.set.has("GS")));
+    res.intensity = plusDzGrp ? `Heavy ${precipOf(plusDzGrp)[0]}（+はFZDZ/DZ）` : INT_NAME[comp.PL];
+    const others = Object.keys(comp).filter(c=>c!=="PL");
+    const row = ALLOW_DB.find(r => r.ip===comp.PL
+      && others.length===Object.keys(r.mix).length
+      && others.every(c => r.mix[c] && r.mix[c].includes(comp[c])));
+    if(!row){
+      let why = "AOMB Allowance Time表に存在しない組合せ → 離陸不可（Operations in Light, Moderate Ice Pellets）", gateWx = false;
+      const dz = comp.FZDZ ? "FZDZ" : comp.DZ ? "DZ" : null;
+      if(plusDzGrp)
+        why = `Heavy ${precipOf(plusDzGrp)[0]} と Ice Pellets の混合（${plusDzGrp.tok}）は No.191 で Allowance Time 表から削除 → 離陸不可`;
+      else if(comp.PL==="H"){
+        why = "強い Ice Pellets / 小雹（+）を含む → 離陸不可（CAUTION: heavy ice pellets / heavy small hail）"; gateWx = true; }
+      else if(dz && (comp.PL==="L" ? comp[dz]!=="L" : comp[dz]==="H"))
+        why = `${INT_NAME[comp.PL]} Ice Pellets と ${INT_NAME[comp[dz]]} ${dz} の混合は No.191 で Allowance Time 表から削除 → 離陸不可`;
+      return {...res, kind:"NO_TO", gateWx, cond:`${mixTxt} — 表に無い組合せ`, reason:why};
+    }
     const bi = allowBandIndex(oat);
-    if(bi<0) return {...res, kind:"NO_HOT", cond:row.label, reason:"OAT が -22℃未満 → Allowance Time なし（離陸不可）"};
+    if(bi<0) return {...res, kind:"NO_TO", cond:row.label, reason:"OAT が -22℃未満 → Allowance Time なし（離陸不可）"};
     const cell = row.t[bi];
-    if(!cell) return {...res, kind:"NO_HOT", cond:row.label, reason:`${ALLOW_BANDS[bi]}℃ では Operations Not Authorized`};
+    if(!cell) return {...res, kind:"NO_TO", cond:row.label, reason:`${ALLOW_BANDS[bi]}℃ では Operations Not Authorized（離陸不可）`};
+    if(wx.filter(w=>precipOf(w).length).length>1) res.notes.push(`別の群で報じられた降水を混合として照合（${mixTxt}）`);
     res.notes.push("*1 VR<100kt: Allowance Time なし（離陸不可）");
     if(cell.vr115) res.notes.push("*2 CAUTION: VR<115kt では離陸不可");
     res.notes.push("Type IV 100/0 で Anti-ice されていること / Type I・II 使用不可");
-    return {...res, kind:"ALLOW", minutes:cell.t, cond:`${row.label}（${ALLOW_BANDS[bi]}℃）`, code:w.tok};
+    return {...res, kind:"ALLOW", minutes:cell.t, cond:`${row.label}（${ALLOW_BANDS[bi]}℃）`, code:mixTxt};
   }
+
+  if(has("UP"))
+    return {...res, kind:"NO_HOT", cond:"UP（不明な降水）",
+      reason:"不明な降水（UP）はHOT表に欄が無い → HOTガイドライン無し。降水の形態を地上・管制で確認のこと"};
 
   /* ---- 3. HOTテーブル ---- */
   const band = hotBand(opt.fluid,oat);
@@ -851,71 +985,112 @@ function decideHOT(p, opt){
   if(!band) return {...res, kind:"NO_HOT", cond:"OAT below LOUT band", reason:`${fl.label}: ${fl.lout}℃ 未満は HOT ガイドラインなし`};
 
   const snowy = has("SN")||has("SG");
-  const fzfgGrp = grpOf("FZFG");
+  const fzfgGrp = wx.find(w=>w.set.has("FZFG"));
+  const visInt = snowIntensity(vis,oat,isDay,visSM);   // null = 視程不明
+  const needVis = () => ({...res, kind:"NONE", cond:"視程未取得",
+    reason:"降雪強度の判定に視程が必要（*13: 換算表必須）。METARを確認するか Manual Override で VIS を入力してください"});
 
   if(snowy){
-    // 強度判定: SN FZFG→視程必須 / SN FG→METAR符号可（SnowBird）/ その他→視程主体（+符号は悪い側を採用）
-    const wSnow = wx.find(x=>x.set.has("SN")||x.set.has("SG"));
-    const RANK={"Very Light":0,"Light":1,"Moderate":2,"Heavy":3};
-    const visInt=snowIntensity(vis,oat,isDay);
-    const codeInt={L:"Light",M:"Moderate",H:"Heavy"}[wSnow.intensity];
-    let intensity, intSrc;
-    if(fzfgGrp){ intensity=visInt; intSrc="視程（SN FZFGは換算表必須）"; }
-    else if(has("FG")){ intensity=codeInt; intSrc="METAR強度符号（SN FG）"; }
-    else if(codeInt==="Heavy"){ intensity="Heavy"; intSrc="METAR符号 +SN（Heavy通報を優先）"; }
-    else {
-      intensity=visInt; intSrc="視程（換算表）";
-      if(RANK[codeInt]>RANK[visInt]) res.notes.push(`METAR符号(${wSnow.tok})と視程判定(${visInt})が不整合 — 通報・視程を確認し保守的に判断`);
-    }
-    res.intensity=intensity; res.intSrc=intSrc;
+    const sI = [maxI("SN"),maxI("SG")].filter(Boolean).reduce((a,b)=>IRANK[b]>IRANK[a]?b:a);
+    const codeInt = INT_NAME[sI];
+    const snowTok = wx.filter(w=>w.set.has("SN")||w.set.has("SG")).map(w=>w.tok).join(" ");
 
+    // 強い雪（+SN または視程Heavy）を含む混合で HOT 無しを返す場合は Operations in Heavy Snow の離陸条件も案内
+    if((sI==="H" || visInt==="Heavy") && (has("FZRA")||has("FZDZ")||has("RA")||has("DZ")))
+      res.notes.push("Heavy Snow を含む → Operations in Heavy Snow の条件も適用: ① Type II/IV 100/0 で Anti-ice ② 散布前に機体がClean ③ 離陸前5分以内に翼上面確認 ④ 液剤・汚れ・曇りで確認が妨げられないこと ⑤ 液剤無効なら離陸せず再 De/Anti-ice");
     // Snow + FZRA/FZDZ の混在（PLなし）はHOT表に欄が無い → ガイドラインなし
     if(has("FZRA")||has("FZDZ"))
       return {...res, kind:"NO_HOT", cond:`Snow mixed with ${has("FZRA")?"FZRA":"FZDZ"}`,
         reason:"Snow + 凍結性降雨/霧雨の混在はHOT表に無い組合せ → ガイドラインなし（De-ice後に再評価）"};
 
-    // Snow + Rain/Drizzle（*2 / *15 / SNRA欄）— 強度確認は視程（*15）
+    // Snow + Rain/Drizzle（*2 / *15 / Moderate Snow mixed with Rain 欄）
     if(has("RA")||has("DZ")){
-      const mixInt=visInt; res.intensity=mixInt; res.intSrc="視程（*15: 換算表で確認必須）";
-      if(wSnow.intensity==="H") res.notes.push("通報強度「+」— *15により視程で強度を確認のこと");
-      if(mixInt==="Heavy")
+      const rI = maxI("RA"), dI = maxI("DZ");
+      if(sI==="H"||rI==="H"||dI==="H")
+        return {...res, kind:"NO_HOT", intensity:"Heavy", cond:"Snow mixed with Rain/Drizzle — 強い降水（+）",
+          reason:"強い降水（+）を含む Snow + Rain/Drizzle にHOT無し（*15）"};
+      if(!visInt) return needVis();
+      res.intensity=visInt; res.intSrc="視程（*15: 換算表で確認必須）";
+      if(visInt==="Heavy")
         return {...res, kind:"NO_HOT", cond:"Snow mixed with Rain/Drizzle — Heavy",
           reason:"*15 視程がHeavy相当 → Snow mixed with Rain のHOT無し"};
-      if(mixInt==="Moderate"){
-        if(band.snra!=null && oat>0){
-          res.notes.push("*15 視程で Moderate を確認（Heavy相当ならHOT無し）/ *5 OAT≦0℃はHOT無し");
-          return {...res, kind:"HOT", minutes:band.snra, cond:`Moderate Snow mixed with Rain（${band.label}）`};
-        }
-        return {...res, kind:"NO_HOT", cond:"Moderate Snow mixed with Rain",
-          reason: oat<=0 ? "*5 OAT≦0℃では Snow mixed with Rain のHOT無し → 離陸不可（De-ice後再評価）"
-                         : "この温度帯に Snow mixed with Rain のHOT無し"};
+      const lightSnow = visInt==="Very Light"||visInt==="Light";
+      // *2/*15: Very Light/Light の雪 + 「軽い雨(-RA)」または霧雨(DZ) → -FZRA 欄
+      if(lightSnow && (rI ? rI==="L" : true)){
+        res.notes.push("*2/*15 VeryLight/Light Snow + Light Rain(-RA)/Drizzle → Light FZRA (-FZRA) のHOTを適用");
+        if(band.n6) res.notes.push("*6 -10℃未満では -FZRA のHOT無し");
+        if(band.fzra==null || (band.n6&&oat<-10))
+          return {...res, kind:"NO_HOT", cond:"Snow + Rain/Drizzle → -FZRA 欄", reason:"この温度帯に -FZRA のHOT無し（*6 含む）"};
+        return {...res, kind:"HOT", minutes:band.fzra, cond:`Snow mixed with Rain/Drizzle → -FZRA 欄（${band.label}）`};
       }
-      res.notes.push("*2/*15 VeryLight/Light Snow + Rain/Drizzle → Light FZRA (-FZRA) のHOTを適用");
-      if(band.fzra!=null) return {...res, kind:"HOT", minutes:band.fzra, cond:`Snow mixed with Rain/Drizzle → -FZRA 欄（${band.label}）`};
-      return {...res, kind:"NO_HOT", cond:"Snow + Rain/Drizzle", reason:"この温度帯に -FZRA のHOT無し"};
+      // ここに来るのは「Moderate の雪」または「Moderate の雨」
+      if(!rI)
+        return {...res, kind:"NO_HOT", cond:"Moderate Snow mixed with Drizzle",
+          reason:"Moderate Snow + Drizzle はHOT表に欄が無い（Moderate Snow mixed with Rain 欄は雨 SNRA/RASN のみ）→ HOT無し"};
+      if(lightSnow) res.notes.push(`雨の通報強度が Moderate（${wx.filter(w=>w.set.has("RA")).map(w=>w.tok).join(" ")}）→ *2(-FZRA)は不可、Moderate Snow mixed with Rain 欄を適用`);
+      if(band.snra!=null && oat>0){
+        res.notes.push("*15 視程で Heavy でないことを確認 / *5 OAT≦0℃はHOT無し");
+        return {...res, kind:"HOT", minutes:band.snra, cond:`Moderate Snow mixed with Rain（${band.label}）`};
+      }
+      return {...res, kind:"NO_HOT", cond:"Moderate Snow mixed with Rain",
+        reason: oat<=0 ? "*5 OAT≦0℃では Snow mixed with Rain のHOTガイドライン無し（No Holdover Time Exists の手順による）"
+                       : "この温度帯に Snow mixed with Rain のHOT無し"};
     }
+
+    // 降雪強度: SN FZFG→視程必須 / SN FG→METAR符号可（Operations in Snow）/ +SN→Heavy優先 / その他→視程（*13）
+    let intensity, intSrc;
+    if(fzfgGrp){
+      if(!visInt) return needVis();
+      intensity = codeInt==="Heavy" ? "Heavy" : visInt;
+      intSrc = codeInt==="Heavy" ? "METAR符号 +SN（Heavy通報を優先）" : "視程（SN FZFGは換算表必須）";
+    }
+    else if(has("FG")){
+      intensity=codeInt; intSrc="METAR強度符号（SN FG: Operations in Snowの霧併存時の例外）";
+      if(visInt && SNOW_RANK[visInt]>SNOW_RANK[codeInt]) res.notes.push(`参考: 換算表では ${visInt}（*13は換算表を必須とするが、FZFG以外の霧と併存時はMETAR強度の使用可 — Operations in Snow）`);
+    }
+    else if(codeInt==="Heavy"){ intensity="Heavy"; intSrc="METAR符号 +SN（Heavy通報を優先）"; }
+    else {
+      if(!visInt) return needVis();
+      intensity=visInt; intSrc="視程（換算表）";
+      if(SNOW_RANK[codeInt]>SNOW_RANK[visInt]) res.notes.push(`METAR符号(${snowTok})と視程判定(${visInt})が不整合 — 通報・視程を確認し保守的に判断`);
+    }
+    res.intensity=intensity; res.intSrc=intSrc;
 
     if(intensity==="Heavy") return {...res, kind:"HEAVY_SNOW", cond:"Heavy Snow"};
 
     // Snow mixed with FZFG
     if(fzfgGrp){
       const v = intensity==="Moderate"?band.snfzfg.m:band.snfzfg.lvl;
-      res.notes.push("*13 換算表で Moderate 以下を確認（Heavy にHOT無し）");
+      res.notes.push("*13 降雪強度は換算表で判定（必須）— 視程がHeavy相当ならHOT無し");
       if(v<=0) return {...res, kind:"NO_HOT", cond:`Snow mixed with FZFG ${intensity}（${band.label}）`, reason:"HOT 0:00 — 実質ガイドラインなし"};
       return {...res, kind:"HOT", minutes:v, cond:`Snow mixed with Freezing Fog — ${intensity}（${band.label}）`};
     }
     // 純Snow（IC混在は*12でSN欄）
     const v = intensity==="Moderate"?band.sn.m : intensity==="Light"?band.sn.l : band.sn.vl;
+    if(!has("FG")) res.notes.push("*13 降雪強度は換算表で判定（必須）— 視程がHeavy相当ならHOT無し");
     if(has("IC")) res.notes.push("*12 SN+IC → SN欄を適用");
-    if(wx.some(w=>w.gsAsSP)) res.notes.push("GS を Snow Pellets として SN欄を適用（手動設定）");
     if(v<=0) return {...res, kind:"NO_HOT", cond:`Snow ${intensity}（${band.label}）`, reason:"HOT 0:00 — 実質ガイドラインなし"};
     return {...res, kind:"HOT", minutes:v, cond:`Snow / SG / Snow Pellets — ${intensity}（${band.label}）`};
   }
 
+  if((has("FZDZ")||has("FZRA")) && (has("RA")||has("DZ")))
+    return {...res, kind:"NO_HOT", cond:"凍結性降水 + 雨/霧雨（液体）",
+      reason:"FZDZ/FZRA と液体の雨・霧雨の混合はHOT表に欄が無い → HOTガイドライン無し"};
+  if(has("FZDZ") && has("FZRA")){   // ここに来る FZRA は -FZRA のみ（Moderate以上は禁止済み）
+    const fI = maxI("FZDZ");
+    const fzdzV = band.fzdz ? (fI==="L"?band.fzdz[1]:band.fzdz[0]) : null;
+    res.intensity=INT_NAME[fI]+" FZDZ + Light FZRA";
+    res.notes.push("FZDZ と -FZRA の併報 → FZDZ（報告強度）と -FZRA の短い方を適用（p3 CAUTION: 悪い方の条件）");
+    if(band.n6) res.notes.push("*6 -10℃未満では FZDZ/-FZRA のHOT無し");
+    if(band.fzra==null || fzdzV==null || (band.n6&&oat<-10))
+      return {...res, kind:"NO_HOT", cond:`Freezing Drizzle + Light Freezing Rain（${band.label}）`, reason:"この温度帯に FZDZ / -FZRA のHOT無し"};
+    const v = Math.min(band.fzra, fzdzV);
+    return {...res, kind:"HOT", minutes:v, cond:`FZDZ + -FZRA → ${v===band.fzra?"-FZRA":"FZDZ"} 欄（${band.label}）`};
+  }
   if(has("FZDZ")){
-    const w=grpOf("FZDZ");
-    const applied = w.intensity==="L"?band.fzdz?.[1]:band.fzdz?.[0];   // max=Light / min=Mod-Heavy
-    res.intensity={L:"Light",M:"Moderate",H:"Heavy"}[w.intensity];
+    const fI = maxI("FZDZ");
+    const applied = fI==="L"?band.fzdz?.[1]:band.fzdz?.[0];   // max=Light / min=Mod-Heavy
+    res.intensity=INT_NAME[fI];
     res.notes.push("*3 FZDZと確実に識別できない場合は -FZRA のHOTを使用");
     if(band.n6) res.notes.push("*6 -10℃未満では FZDZ/-FZRA のHOT無し");
     if(!band.fzdz || (band.n6&&oat<-10)) return {...res, kind:"NO_HOT", cond:`Freezing Drizzle（${band.label}）`, reason:"この温度帯に FZDZ のHOT無し"};
@@ -927,7 +1102,14 @@ function decideHOT(p, opt){
     if(band.fzra==null || (band.n6&&oat<-10)) return {...res, kind:"NO_HOT", cond:`Light Freezing Rain（${band.label}）`, reason:"この温度帯に -FZRA のHOT無し"};
     return {...res, kind:"HOT", minutes:band.fzra, cond:`Light Freezing Rain (-FZRA)（${band.label}）`};
   }
-  if(fzfgGrp || has("IC") || (has("BR")&&oat<=0&&wx.length===1)){
+  if((fzfgGrp || has("IC")) && (has("RA")||has("DZ")))
+    return {...res, kind:"NO_HOT", cond:"FZFG / IC + 雨・霧雨",
+      reason:"Freezing Fog / Ice Crystals と雨・霧雨の混合はHOT表に欄が無い → HOTガイドライン無し"};
+  if((has("RA")||has("DZ")) && oat<=0)
+    return {...res, kind:"NO_HOT", cond:"Rain/Drizzle at OAT≦0℃",
+      reason:"OAT≦0℃の雨/霧雨: Rain on Cold Soaked Wing は *5 によりHOT無し、他に該当欄なし → HOT無し（着氷性降水の可能性 — 通報・機体状況を確認）"};
+  // *10: Mist は OAT≦0℃で FZFG 欄。降水と併報時のみ不適用（BLSN/DRSN・TS等の非降水との併記は適用可）
+  if(((fzfgGrp || has("IC")) && !has("RA") && !has("DZ")) || (has("BR")&&oat<=0&&!precipPresent)){
     if(has("IC")&&!fzfgGrp) res.notes.push("*11 IC（+FZFG/BR）→ FZFG欄を適用");
     if(has("BR")&&!fzfgGrp&&!has("IC")) res.notes.push("*10 Mist(BR)はOAT≦0℃でFZFG欄（他降水と混在時は適用不可）");
     res.notes.push("範囲の下限=悪条件側 / 上限=Light条件側。安全側は下限を使用");
@@ -951,6 +1133,20 @@ function decideHOT(p, opt){
    ════════════════════════════════════════════════════════════ */
 const $=id=>document.getElementById(id);
 let lastHotMinutes=null;
+function metarStation(text){
+  const m = String(text||"").toUpperCase().match(/(?:^|\s)([A-Z]{4})\s+\d{6}Z/);
+  return m ? m[1] : getIcao();
+}
+function hotOpts(){
+  return {
+    fluid:document.querySelector('input[name=fluid]:checked').value,
+    isDay:document.querySelector('input[name=tod]:checked').value==="day",
+    oat:$("ovOat").value!==""?parseFloat($("ovOat").value):null,
+    vis:$("ovVis").value!==""?parseFloat($("ovVis").value):null,
+    gsAsSnowPellets:$("gsAsSnowPellets").checked,
+    rcsw:$("rcswMode").checked,
+  };
+}
 
 function renderChips(p){
   const el=$("chips"); el.innerHTML="";
@@ -966,17 +1162,11 @@ function calcHOT(){
   const p=parseMetar(text);
   renderChips(p);
   // 折りたたみ時のミニ表示用サマリ
-  const mini=[getIcao(), p.wx.map(w=>w.tok).join(" "),
-    p.oat!=null?`${p.oat}℃`:null, p.vis!=null?(p.vis>=9999?"10km+":p.vis+"m"):null].filter(Boolean).join(" ‧ ");
+  const mini=[metarStation(text), p.wx.map(w=>w.tok).join(" "),
+    p.oat!=null?`${p.oat}℃`:null, p.visTxt ? p.visTxt : p.vis!=null?(p.vis>=9999?"10km+":p.vis+"m"):null].filter(Boolean).join(" ‧ ");
   $("metarMiniTxt").textContent = mini || "METAR 未入力";
-  const opt={
-    fluid:document.querySelector('input[name=fluid]:checked').value,
-    isDay:document.querySelector('input[name=tod]:checked').value==="day",
-    oat:$("ovOat").value!==""?parseFloat($("ovOat").value):null,
-    vis:$("ovVis").value!==""?parseFloat($("ovVis").value):null,
-    gsAsSnowPellets:$("gsAsSnowPellets").checked,
-    rcsw:$("rcswMode").checked,
-  };
+  const opt=hotOpts();
+  if($("tab-proc").classList.contains("active")) renderProc();
   if(!text.trim() && opt.oat===null) return;
   const r=decideHOT(p,opt);
 
@@ -986,7 +1176,7 @@ function calcHOT(){
   lastHotMinutes=null;
 
   $("bOat").textContent=(r.oat!=null)?`${r.oat}℃`:"--";
-  $("bVis").textContent=r.vis==null?"--":(r.vis>=9999?"CAVOK/10km+":`${r.vis}m`);
+  $("bVis").textContent=r.visTxt ? r.visTxt : r.vis==null?"--":(r.vis>=9999?"CAVOK/10km+":`${r.vis}m`);
   const bi=$("bInt"); bi.textContent=r.intensity||"--";
   bi.style.color = r.intensity==="Heavy"?"var(--warn)" : r.intensity==="Light"?"var(--green)" : r.intensity==="Very Light"?"#80deea":"var(--text)";
   $("bCond").textContent=(r.cond||"--")+(r.intSrc?`\n判定: ${r.intSrc}`:"");
@@ -1030,6 +1220,43 @@ function calcHOT(){
   updateLimit();
 }
 
+/* ---- Day/Night 自動判定 ----
+   換算表の Day/Night は観測時の明るさで選ぶ（夜間は灯火で視程を測るため同じ降雪でも報告視程が長い → 夜の行は常に同等以上に重い）。
+   日出〜日没の間のみ DAY（境界±10分はマージンとして NIGHT 側＝保守的）。薄明は NIGHT 扱い。 */
+const AIRPORT_POS = {
+  RJCC:[42.775,141.692], RJCH:[41.770,140.822], RJCK:[43.041,144.193], RJCB:[42.733,143.217], RJCM:[43.881,144.164], RJEC:[43.671,142.448],
+  RJSA:[40.735,140.691], RJSM:[40.703,141.369], RJSS:[38.140,140.917], RJSK:[39.616,140.219],
+  RJNK:[36.395,136.407],
+  RJTT:[35.552,139.780], RJAA:[35.765,140.386], RJGG:[34.858,136.805], RJOO:[34.786,135.438], RJBB:[34.427,135.244], RJFF:[33.586,130.451],
+  RJOB:[34.757,133.855], RJOA:[34.436,132.919], RJDC:[33.930,131.279], RJOC:[35.414,132.890], RJOT:[34.214,134.016], RJOS:[34.133,134.607], RJOM:[33.827,132.700], RJOK:[33.546,133.669],
+  RJFR:[33.846,131.035], RJFO:[33.479,131.737], RJFU:[32.917,129.914], RJFT:[32.837,130.855], RJFM:[31.877,131.449], RJFK:[31.803,130.719],
+};
+function sunRiseSetUTC(lat, lon, dateUTC){            // 戻り値: その UTC 日 00:00 からの分（範囲外もあり得る）
+  const rad=Math.PI/180;
+  const y=dateUTC.getUTCFullYear();
+  const N=Math.floor((Date.UTC(y,dateUTC.getUTCMonth(),dateUTC.getUTCDate())-Date.UTC(y,0,0))/86400000);
+  const g=2*Math.PI/365*(N-1);
+  const eqt=229.18*(0.000075+0.001868*Math.cos(g)-0.032077*Math.sin(g)-0.014615*Math.cos(2*g)-0.040849*Math.sin(2*g));
+  const dec=0.006918-0.399912*Math.cos(g)+0.070257*Math.sin(g)-0.006758*Math.cos(2*g)+0.000907*Math.sin(2*g)-0.002697*Math.cos(3*g)+0.00148*Math.sin(3*g);
+  const cosHA=Math.cos(90.833*rad)/(Math.cos(lat*rad)*Math.cos(dec))-Math.tan(lat*rad)*Math.tan(dec);
+  if(cosHA>1||cosHA<-1) return null;
+  const ha=Math.acos(cosHA)/rad;
+  return { rise:720-4*(lon+ha)-eqt, set:720-4*(lon-ha)-eqt };
+}
+function autoDayNight(icao, ddhhmm, now){
+  const pos=AIRPORT_POS[icao];
+  if(!pos) return { isDay:false, label:`${icao}: 空港座標が未登録のため保守的に NIGHT — 昼間なら手動で DAY に` };
+  const dd=+ddhhmm.slice(0,2), hh=+ddhhmm.slice(2,4), mi=+ddhhmm.slice(4,6);
+  let obs=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),dd,hh,mi));
+  if(obs.getTime()-now.getTime()>86400000) obs=new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth()-1,dd,hh,mi));
+  const st=sunRiseSetUTC(pos[0],pos[1],obs);
+  if(!st) return { isDay:false, label:`${icao}: 日出・日没を計算できないため保守的に NIGHT` };
+  const t=hh*60+mi, M=10;
+  const isDay=[-1440,0,1440].some(k=>t>=st.rise+k+M && t<=st.set+k-M);
+  const jst=m=>{ const x=((Math.round(m)+540)%1440+1440)%1440; return `${String(Math.floor(x/60)).padStart(2,"0")}:${String(x%60).padStart(2,"0")}`; };
+  return { isDay, label:`自動: ${isDay?"DAY":"NIGHT"}（${icao} 観測 ${jst(t)} JST／日出 ${jst(st.rise)}・日没 ${jst(st.set)}、境界±10分はNIGHT）— 確認のこと` };
+}
+
 /* ---- ICAO選択 ---- */
 function getIcao(){
   const s=$("icao").value;
@@ -1045,7 +1272,7 @@ function icaoChanged(){
 
 /* ---- METAR fetch (CheckWX) ---- */
 async function fetchMetar(){
-  const API_KEY="70a1a6628e114359af87a90f1f2f39e1";
+  const API_KEY="83536c20416041c9993da2e6b80ce16f";
   const icao=getIcao();
   const st=$("apiStatus");
   if(icao.length<3){ alert("ICAOコード(3-4文字)を入力してください"); return; }
@@ -1058,9 +1285,10 @@ async function fetchMetar(){
       $("metar").value=j.data[0];
       const tm=j.data[0].match(/\d{6}Z/);
       st.textContent=`✅ CheckWX OK (Obs ${tm?tm[0]:"?"})`; st.style.color="var(--green)";
-      // 観測時刻からDay/Night初期推定（JST 06-18 → Day）※要確認
-      if(tm){ const jst=(parseInt(tm[0].slice(2,4))+9)%24;
-        (jst>=6&&jst<18?$("tDay"):$("tNight")).checked=true; }
+      // 観測時刻の明るさで Day/Night を自動設定（空港座標から日出・日没を計算。不明なら保守的に NIGHT）
+      const dn = tm ? autoDayNight(icao, tm[0].slice(0,6), new Date()) : null;
+      ($( dn && dn.isDay ? "tDay" : "tNight")).checked = true;
+      $("todAuto").textContent = dn ? dn.label : "観測時刻不明のため保守的に NIGHT — 確認のこと";
       calcHOT();
       // HOTタブ表示中なら結果カードへ軽くスクロール
       if($("tab-hot").classList.contains("active"))
@@ -1314,12 +1542,72 @@ function calcLanding(){
 /* ════════════════════════════════════════════════════════════
    MODALS / TABLES
    ════════════════════════════════════════════════════════════ */
+/* ════ PROC: 冬季 Procedure メモ ════
+   データは原本アーティファクト（.claude/proc_source.html）から .claude/sync_proc.py で生成。手で編集しない。 */
+/* PROC_DB:BEGIN */const PROC_DB = [{"col": "DEPARTURE", "sub": "出発〜離陸", "phases": [{"title": "EXTERIOR · PREFLIGHT", "sub": "外部点検・出発準備", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "CSFF", "detail": true, "ac": "確認", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "PROBE HEAT", "detail": false, "ac": "ON", "monoIt": false, "monoAc": false, "note": null}]}, {"title": "DE/ANTI-ICING", "sub": "防除氷", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "STAB TRIM", "detail": false, "ac": "5 UNITS", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "APU BLEED", "detail": false, "ac": "OFF", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "INTERNET GND CONT SW", "detail": false, "ac": "MUTE", "monoIt": false, "monoAc": false, "note": null}, {"type": "set", "tag": "毎回", "title": "整備士と確認する 3 点セット", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "①防氷液の種類 / Mixture Ratio", "detail": false, "ac": "確認", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "②散布開始時刻", "detail": false, "ac": "確認", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "③機体", "detail": false, "ac": "CLEAN 確認", "monoIt": false, "monoAc": false, "note": null}]}]}, {"title": "ENGINE START", "sub": "エンジン始動", "items": [{"type": "row", "gate": true, "when": "GATE：Oil Temp が Limit 内 かつ Oil Press が Full Scale", "tag": null, "it": "ENGINE", "detail": false, "ac": "SHUTDOWN", "monoIt": false, "monoAc": false, "note": null}]}, {"title": "BEFORE TAXI", "sub": "地上走行前", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "FLAPS", "detail": false, "ac": "UP – 40 – UP", "monoIt": false, "monoAc": false, "note": "整備士ではなく乗員が確認"}]}, {"title": "TAXI OUT", "sub": "地上走行", "items": [{"type": "row", "gate": false, "when": "POOR", "tag": null, "it": "TAXI SPEED", "detail": false, "ac": "6kt / 3kt", "monoIt": false, "monoAc": true, "note": null}, {"type": "row", "gate": false, "when": "TWY / APRON が POOR", "tag": null, "it": "走行経路・風の影響", "detail": false, "ac": "検討", "monoIt": false, "monoAc": false, "note": "迂回を含めて判断。必要なら停止・Towing 要請。特に斜め後方からの強風に注意"}, {"type": "row", "gate": false, "when": "ENG Anti-Ice ON ＋ OAT 3℃以下", "tag": null, "it": "ENG RUN-UP", "detail": false, "ac": "70%N1 · 30秒 / 30分", "monoIt": false, "monoAc": true, "note": null}, {"type": "row", "gate": false, "when": "上記に加え FZRA・FZDZ・FZFG・+SN", "tag": null, "it": "ENG RUN-UP", "detail": false, "ac": "70%N1 · 1秒 / 10分", "monoIt": false, "monoAc": true, "note": null}]}, {"title": "BEFORE TAKEOFF", "sub": "離陸前", "items": [{"type": "row", "gate": true, "when": "GATE：離陸不可", "tag": null, "it": "離陸不可の天候", "detail": false, "ac": "該当なし確認", "monoIt": false, "monoAc": false, "note": "Heavy small Hail ／ +PL ／ -GR・GR・+GR ／ FZRA・+FZRA"}, {"type": "row", "gate": false, "when": "-GS・GS・+GS", "tag": null, "it": "出典の手順", "detail": true, "ac": "確認", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": "HEAVY SNOW", "tag": null, "it": "Operations in Heavy Snow", "detail": true, "ac": "従う", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "翼上面", "detail": true, "ac": "確認", "monoIt": false, "monoAc": false, "note": "有効ではない翼上面 Fluid の参考画像は出典資料"}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "FLAPS", "detail": false, "ac": "SET", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "BEFORE TAKEOFF CHECKLIST", "detail": false, "ac": "COMPLETE", "monoIt": false, "monoAc": false, "note": null}]}, {"title": "TAKEOFF · RTO", "sub": "離陸・離陸中止", "items": [{"type": "row", "gate": false, "when": "ENG Anti-Ice ＋ OAT 3℃以下", "tag": null, "it": "T/O ENG RUN-UP", "detail": false, "ac": "70%N1 · 30秒", "monoIt": false, "monoAc": true, "note": null}, {"type": "row", "gate": false, "when": "RTO", "tag": null, "it": "REVERSE THRUST", "detail": false, "ac": "MAX", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": "RTO", "tag": null, "it": "60kt", "detail": false, "ac": "REV LEVER 戻し始め", "monoIt": true, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": "RTO", "tag": null, "it": "TAXI SPEED までに", "detail": false, "ac": "REVERSE IDLE", "monoIt": false, "monoAc": false, "note": null}]}]}, {"col": "ARRIVAL", "sub": "降下〜エンジン停止", "phases": [{"title": "DESCENT · APPROACH", "sub": "降下・進入中", "items": [{"type": "row", "gate": false, "when": "必要時", "tag": null, "it": "FAN ICE REMOVAL", "detail": false, "ac": "AOM SP 16.3.12", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "Moderate〜Severe ICING", "detail": false, "ac": "長時間飛行を避ける", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": "ICING CONDITION 中の HOLDING", "tag": null, "it": "FLAPS", "detail": false, "ac": "Extend で Holding しない", "monoIt": false, "monoAc": false, "note": null}]}, {"title": "1,000 FT AGL", "sub": "進入継続の判断", "items": [{"type": "row", "gate": true, "when": "GATE：1,000ft AGL までに", "tag": null, "it": "RWY 状態・着陸性能", "detail": false, "ac": "安全を確認", "monoIt": false, "monoAc": false, "note": "確認できなければ 1,000ft AGL 未満へ進入を継続しない"}]}, {"title": "LANDING ROLL", "sub": "着陸滑走", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "REVERSE THRUST", "detail": false, "ac": "DETENT No.2 / MAX", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "60kt", "detail": false, "ac": "REV LEVER 戻し始め", "monoIt": true, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": null, "tag": null, "it": "TAXI SPEED までに", "detail": false, "ac": "REVERSE IDLE", "monoIt": false, "monoAc": false, "note": null}]}, {"title": "AFTER LANDING · TAXI IN", "sub": "着陸後・地上走行", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "FLAPS", "detail": false, "ac": "15", "monoIt": false, "monoAc": false, "note": null}, {"type": "row", "gate": false, "when": "POOR", "tag": null, "it": "TAXI SPEED", "detail": false, "ac": "6kt / 3kt", "monoIt": false, "monoAc": true, "note": null}, {"type": "row", "gate": false, "when": "TWY / APRON が POOR", "tag": null, "it": "走行経路・風の影響", "detail": false, "ac": "検討", "monoIt": false, "monoAc": false, "note": "迂回を含めて判断。必要なら停止・Towing 要請。特に斜め後方からの強風に注意"}, {"type": "row", "gate": false, "when": "ENG Anti-Ice ON ＋ OAT 3℃以下", "tag": null, "it": "ENG RUN-UP", "detail": false, "ac": "70%N1 · 30秒 / 30分", "monoIt": false, "monoAc": true, "note": null}, {"type": "row", "gate": false, "when": "上記に加え FZRA・FZDZ・FZFG・+SN", "tag": null, "it": "ENG RUN-UP", "detail": false, "ac": "70%N1 · 1秒 / 10分", "monoIt": false, "monoAc": true, "note": null}]}, {"title": "PARKING · SHUTDOWN", "sub": "駐機・エンジン停止", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "STAB TRIM", "detail": false, "ac": "5 UNITS", "monoIt": false, "monoAc": false, "note": null}, {"type": "set", "tag": "必須", "title": "Slippery Surface では必ず実施", "items": [{"type": "row", "gate": false, "when": null, "tag": null, "it": "SEAT BELT SIGN", "detail": false, "ac": "両 ENG 停止後に OFF", "monoIt": false, "monoAc": false, "note": null}]}, {"type": "row", "gate": false, "when": null, "tag": "RECOMMEND", "it": "RETRACTABLE LDG LIGHT", "detail": false, "ac": "EXTEND", "monoIt": false, "monoAc": false, "note": "地上スタッフに Light 収納部に氷塊がつまっていないことを確認してもらってから RETRACT"}]}]}];/* PROC_DB:END */
+let procSide = "DEPARTURE";
+const escH = s => String(s==null?"":s).replace(/[&<>"']/g, c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+/* 条件付き項目の該当判定（表示のみ。項目は隠さない）。キーは原本の条件文と完全一致 —
+   原本の文言が変われば一致せず印が付かない（誤って付けない側）。
+   METARに無い条件（ENG Anti-Ice の作動、TWY/APRON の POOR、RTO 等）は判定しない。 */
+const PROC_COLD_KEYS = ["ENG Anti-Ice ON ＋ OAT 3℃以下", "ENG Anti-Ice ＋ OAT 3℃以下"];
+function procHintsFor(p, opt){
+  const oat = opt.oat!=null ? opt.oat : p.oat;
+  const has = c => p.wx.some(w=>w.set.has(c));
+  const r = decideHOT(p, opt);
+  const hits = {};
+  const cold = oat!=null && oat<=3;
+  const fz = ["FZRA","FZDZ","FZFG"].filter(has).concat(p.wx.some(w=>w.set.has("SN")&&w.intensity==="H")?["+SN"]:[]);
+  if(cold){
+    const lab = "OAT " + oat + "℃ ≦ 3℃（ENG Anti-Ice ON 時）";
+    PROC_COLD_KEYS.forEach(k => { hits[k] = {lv:"hit", lab}; });
+    if(fz.length) hits["上記に加え FZRA・FZDZ・FZFG・+SN"] = {lv:"hit", lab:"OAT ≦ 3℃ かつ " + fz.join("・")};
+  }
+  if(p.wx.some(w=>w.raw.includes("GS"))) hits["-GS・GS・+GS"] = {lv:"hit", lab:"GS 通報 — Snow Pellets / Small Hail の別を RMK で確認"};
+  if(r.kind==="HEAVY_SNOW" || (r.notes||[]).some(n=>n.includes("Operations in Heavy Snow")))
+    hits["HEAVY SNOW"] = {lv:"hit", lab:"Heavy Snow 判定（HOT タブ）"};
+  if(r.kind==="NO_TO" && r.gateWx)
+    hits["GATE：離陸不可"] = {lv:"gate", lab:r.reason};
+  // 種類数（OAT 3℃以下の2つの条件文は同じ条件なので1種と数える）
+  const kinds = Object.keys(hits).filter(k=>!PROC_COLD_KEYS.includes(k)).length + (cold?1:0);
+  return { oat, hits, n:kinds };
+}
+function renderProc(){
+  const text = $("metar").value;
+  const opt = hotOpts();
+  const p = parseMetar(text);
+  const live = text.trim()!=="" || opt.oat!=null;
+  const h = live ? procHintsFor(p, opt) : {hits:{}, n:0, oat:null};
+  $("procSum").innerHTML = live
+    ? "<b>" + escH(metarStation(text)) + "</b> " + escH(p.wx.map(w=>w.tok).join(" ")||"—") + " ‧ OAT " + (h.oat!=null?escH(h.oat)+"℃":"?") + " — 条件付き項目で <b>▶ 該当 " + h.n + " 種</b>"
+    : "METAR 未入力 — 条件付き項目の自動判定なし（項目は全て表示）";
+  $(procSide==="ARRIVAL"?"psArr":"psDep").checked = true;
+  const row = it => {
+    const hit = it.when ? h.hits[it.when] : null;
+    const cls = ["proc-row", it.gate?"gate":"", hit?(hit.lv==="gate"?"hitgate":"hit"):""].filter(Boolean).join(" ");
+    return '<li class="' + cls + '">'
+      + (it.when ? '<span class="pw' + (it.gate?" gate":"") + '">' + escH(it.when) + '</span>' : "")
+      + (hit ? '<span class="phit">▶ 該当: ' + escH(hit.lab) + '</span>' : "")
+      + '<div class="pline"><span class="pit' + (it.monoIt?" mono":"") + '">' + (it.tag?'<span class="ptag">' + escH(it.tag) + '</span>':"") + escH(it.it) + (it.detail?'<span class="pdt">詳細</span>':"") + '</span>'
+      + '<span class="plead"></span><span class="pac' + (it.monoAc?" mono":"") + '">' + escH(it.ac) + '</span></div>'
+      + (it.note ? '<p class="pnote">' + escH(it.note) + '</p>' : "")
+      + '</li>';
+  };
+  const items = list => list.map(it => it.type==="set"
+    ? '<li class="proc-set"><div class="pset-k"><span class="ptag solid">' + escH(it.tag) + '</span>' + escH(it.title) + '</div><ul>' + items(it.items) + '</ul></li>'
+    : row(it)).join("");
+  $("procCols").innerHTML = PROC_DB.map(c =>
+    '<section class="proc-col' + (c.col===procSide?" on":"") + '"><div class="proc-colhead"><b>' + escH(c.col) + '</b><span>' + escH(c.sub) + '</span></div>'
+    + c.phases.map(ph => '<div class="proc-ph"><h4>' + escH(ph.title) + '<span>' + escH(ph.sub) + '</span></h4><ul>' + items(ph.items) + '</ul></div>').join("")
+    + '</section>').join("");
+}
 function switchTab(id){
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
   document.querySelectorAll(".tab-btn").forEach(b=>b.classList.remove("active"));
   $("tab-"+id).classList.add("active"); $("btn-"+id).classList.add("active");
   // METARカードはHOTタブ以外で折りたたみ（タップで再展開可）
   $("metarCard").classList.toggle("collapsed", id!=="hot");
+  if(id==="proc") renderProc();
 }
 function openModal(id){ $(id).style.display="block"; }
 function closeModal(ev,el){ if(ev.target===el) el.style.display="none"; }
@@ -1333,7 +1621,7 @@ function openFluidTable(key,ev){
     return `<tr><td class="rowh">${b.label}</td>${cr(b.fzfg)}${c(b.snfzfg.m)}${c(b.snfzfg.lvl)}${c(b.sn.m)}${c(b.sn.l)}${c(b.sn.vl)}${cr(b.fzdz)}${c(b.fzra)}${c(b.snra)}${cr(b.rcsw)}</tr>`;
   }).join("");
   $("mFluidBody").innerHTML=`<table class="ref">
-    <tr><th rowspan="2">OAT ℃</th><th rowspan="2">FZFG / IC / BR<br>*10*11</th><th colspan="2">SN + FZFG *13</th><th colspan="3">SN / SG / SnowPellets *12</th><th rowspan="2">FZDZ *3</th><th rowspan="2">-FZRA</th><th rowspan="2">Mod SN+RA<br>*5*15</th><th rowspan="2">Rain on CSW<br>*5</th></tr>
+    <tr><th rowspan="2">OAT ℃</th><th rowspan="2">FZFG / IC / BR<br>*10*11</th><th colspan="2">SN + FZFG *13</th><th colspan="3">SN / SG / SnowPellets *12*13</th><th rowspan="2">FZDZ *3</th><th rowspan="2">-FZRA</th><th rowspan="2">Mod SN+RA<br>*5*15</th><th rowspan="2">Rain on CSW<br>*5</th></tr>
     <tr><th>Mod</th><th>L / VL</th><th>Mod</th><th>Light *2</th><th>V.Light *2</th></tr>${rows}</table>`;
   $("mFluidNotes").textContent=`LOUT帯下限: ${f.lout}℃ / 空欄(－)はHOTガイドライン無し。
 範囲表記は min(悪条件側) – max(Light側)。FZDZは範囲がLight〜Heavyに対応。
